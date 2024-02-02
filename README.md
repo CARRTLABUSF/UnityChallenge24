@@ -37,11 +37,8 @@ https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/4217461c-1c0e-4d
 
 - **Task**: Modify the script labeled `GameManager.cs` to:
   - Instantiate prefabs that are under resources.
-    
-    <img src="https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/d29b40a3-6395-47f2-821f-46d10e6a3db3" width=300>
-
   - Make the prefabs children of `SkipperPos` and `SkateboardPos` respectively in the scene.
-  - Ensure prefabs are positioned correctly in the world space.
+  - Ensure prefabs are positioned correctly in the world space
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/b03f1f98-7c6d-4fcb-98cf-611404c68305
 
