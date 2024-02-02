@@ -1,4 +1,4 @@
-# CARRT Unity Challenge 2024
+# CARRT Unity Challenge 2024 💻🎮👾
 
 Welcome to the CARRT Unity Challenge repository! This challenge is designed to test your Unity coding skills as well as your proficiency in collaboration using Git. Follow the instructions below to get started and submit your solutions.
 
@@ -11,13 +11,13 @@ Welcome to the CARRT Unity Challenge repository! This challenge is designed to t
 ## Submission Guidelines
 
 To submit your solutions, follow these steps:
+**Pull Request**:
+   1. Add a pull request in the Pull Request tab of this repository.
+   2. Reference your forked repository in the pull request.
+   3. Provide a brief explanation of how your changes solve the challenges
+   4. Include links to some demo videos
 
-1. **Pull Request**:
-   - Add a pull request in the Pull Request tab of this repository.
-   - Reference your forked repository in the pull request.
-   - Provide a brief explanation of how your changes solve the challenges.
-
-2. **Demo Video**:
+**Demo Videos Suggestion**:
    - Upload a demo video or videos of your final solution(s) to [WeTransfer](https://wetransfer.com/).
    - Include the link to your video(s) in your pull request.
 
