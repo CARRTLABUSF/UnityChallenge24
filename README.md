@@ -59,6 +59,8 @@ These tasks are optional but demonstrate creativity:
 
 Feel free to explore these extras to showcase your skills!
 
+## Foreword
+
 Good luck with the challenge! We look forward to seeing your solutions.
 
 ---
