@@ -47,8 +47,8 @@ https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/b03f1f98-7c6d-4f
 ### Level 3: Game Object Lives
 
 - **Task**: Modify `LaserHand.cs` and `SphereController.cs`:
-  - Give the sphere 5 lives.
-  - Prevent the sphere from being destroyed until the 5th hit by the LaserHand raycast.
+  - Prevent the sphere from being destroyed until the 5th hit by the LaserHand raycast. LIke having 5 lives
+  - Only `SphereController.cs` must be the one keeping track of the `lives` remaining.
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/7bce5954-11fc-4d35-af8b-85a9042821e5
 
