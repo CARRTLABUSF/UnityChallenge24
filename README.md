@@ -20,7 +20,6 @@ To submit your solutions, follow these steps:
 
 **Demo Videos Suggestion**:
    - Upload a demo video or videos of your final solution(s) to [WeTransfer](https://wetransfer.com/).
-   - Include the link to your video(s) in your pull request.
 
 ## Challenge Levels
 
