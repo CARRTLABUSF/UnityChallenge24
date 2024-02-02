@@ -59,8 +59,8 @@ These tasks are optional but demonstrate creativity:
 
 Feel free to explore these extras to showcase your skills!
 
-Good luck with the challenge! We look forward to seeing your solutions. If you have any questions, feel free to reach out.
+Good luck with the challenge! We look forward to seeing your solutions.
 
 ---
 
-CARRT Unity Challenge is created by [Your Organization Name].
+CARRT Unity Challenge is created by [L42ARO](https://github.com/L42ARO) and [CARRT](https://github.com/CARRTLABUSF).
