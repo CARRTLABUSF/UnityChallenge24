@@ -8,7 +8,7 @@ Welcome to the CARRT Unity Challenge repository! This challenge is designed to t
 
 1. **Fork this Repository**: Fork this repository under your account so you can modify it without restriction.
 2. **Clone your fork**: Clone your forked repo into your machine so you can make changes
-3. **Download Unity 2021.33f1**: Ensure compatibility by using Unity 2021.33f1 for development. This version will help avoid compatibility issues.
+3. **Download Unity 2021.33f1**: Ensure compatibility by using [Unity 2021.33f1](https://unity.com/releases/editor/whats-new/2021.3.33) for development. This version will help avoid compatibility issues.
 4. **Open in Unity**: The actual Unity project is UntiyChallenge24, so make sure to open that folder when in Unity Hub.
 
 ## Submission Guidelines
