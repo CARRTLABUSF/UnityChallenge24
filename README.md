@@ -28,7 +28,9 @@ The challenge is divided into three levels. You don't have to complete all of th
 
 ### Level 1: Moving Laser Hand
 
-- **Task**: Modify the script `HandController.cs` to make the hand move back and forth in the scene. Next modify `LaserHand.cs` to use Physics Raycasts to destroy the sphere when it's in front of it.
+**Task**:
+- Modify the script `HandController.cs` to make the hand move back and forth in the scene
+- Next modify `LaserHand.cs` to use Physics Raycasts to destroy the sphere when the hand in front of it.
 
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/4217461c-1c0e-4dac-a88d-4c02063bcb42
