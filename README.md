@@ -13,7 +13,7 @@ Welcome to the CARRT Unity Challenge repository! This challenge is designed to t
 To submit your solutions, follow these steps:
 
 **Create a Pull Request**:
-   1. Add a pull request in the Pull Request tab of this repository.
+   1. Add a pull request in the [Pull Request tab](https://github.com/CARRTLABUSF/UnityChallenge24/pulls) of this repository.
    2. Reference your forked repository in the pull request.
    3. Provide a brief explanation of how your changes solve the challenges
    4. Include links to some demo videos
