@@ -15,9 +15,15 @@ To submit your solutions, follow these steps:
 
 **Create a Pull Request**:
    1. Add a pull request in the [Pull Request tab](https://github.com/CARRTLABUSF/UnityChallenge24/pulls) of this repository.
-   2. Reference your forked repository in the pull request.
-   3. Provide a brief explanation of how your changes solve the challenges
-   4. Include links to some demo videos
+   2. Reference your forked repository in the pull request. (you will have to click on the little hyperlink *compare across forks*)
+      
+      <img src="https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/3630f18b-e085-45b3-81df-2b962b300624" width=500>
+
+   4. Provide a brief explanation of how your changes solve the challenges
+   5. Include links to demo video(s)
+
+**If unable to do pull request:**
+- Just email us back a link to your repo, and link(s) to the video(s), but it's worth noting making pull requests is a valuable git skill
 
 **Demo Videos Suggestion**:
    - Use [WeTransfer](https://wetransfer.com/) to upload your video demos and get the links to put in your pull request.
