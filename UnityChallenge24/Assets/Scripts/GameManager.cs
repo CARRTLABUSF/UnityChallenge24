@@ -6,15 +6,25 @@ public class GameManager : MonoBehaviour
 {
     public GameObject skipperPosition;
     public GameObject skateboardPosition;
-    // Start is called before the first frame update
+    
+    [Header("Prefabs")]
+    [SerializeField] GameObject skipperObj;
+    [SerializeField] GameObject skateboardObj;
+
     void Start()
     {
-
+        InstantiateObject(skipperObj, skipperPosition.transform);
+        InstantiateObject(skateboardObj, skateboardPosition.transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    //Instantiate new object that attach to a parent transform
+    private void InstantiateObject(GameObject prefab, Transform parentTransform)
     {
-        
+        GameObject newObj = Instantiate(prefab, parentTransform);
+
+        //set new transform attributes
+        newObj.transform.position = parentTransform.position;
+        newObj.transform.localScale = new Vector3(10, 10, 10);
+        newObj.transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 }
