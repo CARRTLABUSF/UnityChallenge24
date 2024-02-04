@@ -47,6 +47,7 @@ public class SphereController : MonoBehaviour
         Debug.Log("Hit! Lives left: " + lives.ToString());
     }
 
+    //Change material to flashing when sphere is hit
     private void FlashWhenHit() {
         renderer.material = flashHitMaterial;
         Invoke("ResetMaterialToOriginal", 0.2f);
@@ -63,9 +64,11 @@ public class SphereController : MonoBehaviour
     public IEnumerator Dies() {
         Debug.Log("Sphere dead!");
 
+        //play death audio and wait while clip is playing
         audioSource.PlayOneShot(deathAudioClip);
         yield return new WaitForSeconds(deathAudioClip.length + 0.1f);
 
+        //play explosion FX and self-destruct
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }

@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Hand's movement")]
     [SerializeField] float maxXRange;
-    [SerializeField] float movementSpeed;
+    [SerializeField] float movementSpeed; 
 
     private bool movingRight = true;
  
     void Update()
     {
-        Movement();
+        MoveHandBackNForth();
     }
 
-    private void Movement() {
+    private void MoveHandBackNForth() {
         if (transform.position.x > maxXRange) {
             movingRight = false;
         } 

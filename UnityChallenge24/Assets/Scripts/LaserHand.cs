@@ -24,6 +24,7 @@ public class LaserHand : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, range)) {
             GameObject hitObject = hit.collider.gameObject;
 
+            //if object is destroyable AND isn't in the process of being hit by the current Raycast
             if (hitObject.CompareTag("Destroyable") && hitObject != pastHitObject)
             {
                 pastHitObject = hitObject;
@@ -32,7 +33,7 @@ public class LaserHand : MonoBehaviour
         } else {
             pastHitObject = null;
         }
-        
+            
         if (this.displayRaycast) {
             Debug.DrawLine(transform.position, Vector3.forward * range, Color.red);
         }
