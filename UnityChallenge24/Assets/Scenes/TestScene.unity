@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 5
+  explosion: {fileID: 0}
   flashHitMaterial: {fileID: 2100000, guid: b283ffa1eb3f1f14cbbdf590f6e06297, type: 2}
   hitAudioClip: {fileID: 8300000, guid: 316b4f65b98620448bb6dc6319308a36, type: 3}
   deathAudioClip: {fileID: 8300000, guid: 4d9aaeb9fedd81748b53b8847ffbf596, type: 3}
@@ -836,6 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 5
+  explosion: {fileID: 4267171449991017006, guid: 1db7fdd4cb41af34c91a587e298a4c1a, type: 3}
   flashHitMaterial: {fileID: 2100000, guid: b283ffa1eb3f1f14cbbdf590f6e06297, type: 2}
   hitAudioClip: {fileID: 8300000, guid: 316b4f65b98620448bb6dc6319308a36, type: 3}
   deathAudioClip: {fileID: 8300000, guid: 4d9aaeb9fedd81748b53b8847ffbf596, type: 3}

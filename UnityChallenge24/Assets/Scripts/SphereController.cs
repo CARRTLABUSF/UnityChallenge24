@@ -15,6 +15,9 @@ public class SphereController : MonoBehaviour
 {
     [Header("Sphere hit")]
     [SerializeField] int lives;
+
+    [Space(10)]
+    [SerializeField] GameObject explosion;
     [SerializeField] Material flashHitMaterial;
     [SerializeField] AudioClip hitAudioClip;
     [SerializeField] AudioClip deathAudioClip;
@@ -63,6 +66,7 @@ public class SphereController : MonoBehaviour
         audioSource.PlayOneShot(deathAudioClip);
         yield return new WaitForSeconds(deathAudioClip.length + 0.1f);
 
+        Instantiate(explosion, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }
