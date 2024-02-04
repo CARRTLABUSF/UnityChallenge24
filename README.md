@@ -14,7 +14,7 @@ Wetransfer link: https://we.tl/t-ALkEwT8IxE
 
 **Level 2**
   - Everything from level 1
-  - Modified GameManager to instatiate prefab models and make them parents of their respectice position gameObjects
+  - Modified GameManager to instatiate prefab models and make them parents of their respective position gameObjects
 
 **Level 3**
   - Evertyhing from level 2
@@ -26,7 +26,7 @@ Wetransfer link: https://we.tl/t-ALkEwT8IxE
   - Added material to sphere to make it look like grumpy cat
   - Whenever Laserhand raycast touches sphere, it shakes to indicate it is taking damage
   - Added CaramellaDansen background music
-  - Skipper and Skateboard danse to the beat of CaramellaDansen
+  - Skipper and Skateboard dance to the beat of CaramellaDansen
   - Changed skybox and Hand color
   
 
