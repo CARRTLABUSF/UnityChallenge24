@@ -7,24 +7,24 @@ using UnityEngine.EventSystems;
 
 public class LaserHand : MonoBehaviour
 {
-    
+    // range holds how far raycast will go
     float range = 3;
+    // firstcheck will be used to keep track of first collison of gameobject and raycast
     bool firstCheck = false;
     
     // Update is called once per frame
     void Update()
-    {
+    {   //calling method so it updates
         checkCollision();
     }
 
     void checkCollision(){
-        
-
         Ray ray = new Ray(transform.position, new Vector3(-1 * range, 0, 0));
         Debug.DrawRay(ray.origin, ray.direction * range, Color.red);
 
         if(Physics.Raycast(ray, out RaycastHit hit, range)){
 
+            //if statement used recognize first raycast collison for spehere so it keep checking every frame
             if (hit.collider.tag == "Destroyable" && !firstCheck){
 
                 firstCheck = true;
@@ -34,6 +34,7 @@ public class LaserHand : MonoBehaviour
             }
             
         } 
+        //first check turned false when no longer colliding with sphere
         else firstCheck = false;
     }
 
