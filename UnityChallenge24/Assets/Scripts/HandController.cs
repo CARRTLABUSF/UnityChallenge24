@@ -13,7 +13,7 @@ public class HandController : MonoBehaviour
     void Update()
     {   
         //keeps current x and y and uses sine wave to ossiclate z position
-        transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Sin(Time.time * speed));
+        transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Sin(Time.time * speed - 1));
         
     }
 
