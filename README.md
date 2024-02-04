@@ -6,7 +6,7 @@
 
 Wetransfer link: https://we.tl/t-ALkEwT8IxE
 
-# Explainations
+# Explanations
 
 **Level 1**
   - I used the Mathf library to make hand osscilate on a sine wave so the transition betwen back and forth is smoother
