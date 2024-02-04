@@ -8,7 +8,7 @@ using UnityEngine;
 public class HandController : MonoBehaviour
 {   
     //variable will store how fast hand will move
-    public int speed;
+    public float speed;
    
     void Update()
     {   
