@@ -4,8 +4,29 @@
 
 # Submission for Jegert Merkaj
 
-Wetransfer link: https://we.tl/t-M77j8fPT2o
+Wetransfer link: https://we.tl/t-ALkEwT8IxE
 
 # Explainations
 
+**Level 1**
+  - I used the Mathf library to make hand osscilate on a sine wave so the transition betwen back and forth is smoother
+  - LaserHand creates and displays Physiscs raycast that detects when it is touching the sphere object to destroy it
+
+**Level 2**
+  - Everything from level 1
+  - Modified GameManager to instatiate prefab models and make them parents of their respectice position gameObjects
+
+**Level 3**
+  - Evertyhing from level 2
+  - Modified sphereController to keep track of HP/Lives
+  - When sphere HP is 0, sphere self destructs
+  - LaserHand subtracts 1 hp every new time the raycast touches the sphere
+
+**Level Final/Extra**
+  - Added material to sphere to make it look like grumpy cat
+  - Whenever Laserhand raycast touches sphere, it shakes to indicate it is taking damage
+  - Added CaramellaDansen background music
+  - Skipper and Skateboard danse to the beat of CaramellaDansen
+  - Changed skybox and Hand color
+  
 
