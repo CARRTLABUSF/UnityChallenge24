@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class SphereController : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public int HP;
+    
     void Update()
     {
-        
+        if (HP == 0) Destroy(gameObject);
     }
 }
