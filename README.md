@@ -27,6 +27,7 @@ Wetransfer link: https://we.tl/t-ALkEwT8IxE
   - Whenever Laserhand raycast touches sphere, it shakes to indicate it is taking damage
   - Added CaramellaDansen background music
   - Skipper and Skateboard dance to the beat of CaramellaDansen
+  - Added victory screen when sphere is destroyed
   - Changed skybox and Hand color
   
 
