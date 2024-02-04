@@ -5,8 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LaserHand : MonoBehaviour
+public class lvl3LaserHand : MonoBehaviour
 {
+    [SerializeField] public GameObject _sphere;
     // range holds how far raycast will go
     float range = 3;
     // firstcheck will be used to keep track of first collison of gameobject and raycast
@@ -28,8 +29,10 @@ public class LaserHand : MonoBehaviour
             if (hit.collider.tag == "Destroyable" && !firstCheck){
 
                 firstCheck = true;
-                print("collision detected");
-                Destroy(hit.collider.gameObject);
+                var health = _sphere.GetComponent<SphereController>();
+                health.HP -= 1;
+                print("Damage Taken! HP: " + health.HP);
+                
         
             }
             
