@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SphereController : MonoBehaviour
 {
-    void Start()
+    private int lives = 5;
+
+    public void removeLife()
     {
-        
+        lives -= 1;
     }
-    void Update()
+
+    public int getLives()
     {
-        
+        return lives;
     }
 }
