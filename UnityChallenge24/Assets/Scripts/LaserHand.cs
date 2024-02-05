@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class LaserHand : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float raycastDistance = 20f; 
+    
 
-    // Update is called once per frame
     void Update()
     {
         
+        Ray ray = new Ray(transform.position,  transform.right*-1);
+        
+        
+        RaycastHit hit;
+
+        
+        if (Physics.Raycast(ray, out hit, raycastDistance))
+        {
+            if (hit.collider.CompareTag("Destroyable")){
+                SphereController sphereController = hit.collider.GetComponent<SphereController>();
+
+                if (sphereController != null)
+                {
+                    
+                    sphereController.ifHit();
+                }
+            }
+        }
+        Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
     }
 }
