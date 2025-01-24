@@ -2,7 +2,7 @@
 ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 
-Welcome to the CARRT Unity Challenge repository! This challenge is designed to test your Unity coding skills as well as your proficiency in collaboration using Git. Follow the instructions below to get started and submit your solutions.
+Welcome to the CARRT Unity Challenge repository! This challenge is designed to test your coding skills as well as your proficiency in collaboration using Git. Follow the instructions below to get started and submit your solutions. To be clear this challenge will be split between 2 skill sets, working with Unity itself, and working with Web Technologies that interface with Unity, you can choose which skillset you'd prefer to showcase.
 
 ## Getting Started
 
@@ -30,10 +30,16 @@ To submit your solutions, follow these steps:
 **Demo Videos Suggestion**:
    - Use [WeTransfer](https://wetransfer.com/) to upload your video demos and get the links to put in your pull request.
 
-## Challenge Levels
+## Challenge Format
 
-The challenge is divided into three levels. You don't have to complete all of them to submit the challenge, but each level evaluates a unique skill useful for our projects.
+As stated before, the challenge is split between 2 categories
 
+- Unity Coding Skills
+- Web technology integration skills
+
+Each category will have different levels. You don't have to complete all of them to submit the challenge, but each level evaluates a unique skill useful for our projects.
+
+## Unity Coding Skills Challenge
 ### Level 1: Moving Laser Hand
 
 **Task**:
@@ -72,9 +78,14 @@ These tasks are optional but demonstrate creativity:
 
 Feel free to explore these extras to showcase your skills!
 
+## Web technology integration skills Challenge
+## Level 1
+
+
+
 ## Foreword
 
-Good luck with the challenge! We look forward to seeing your solutions.
+Good luck with the challenge! MTFBWY 🚀
 
 ---
 
