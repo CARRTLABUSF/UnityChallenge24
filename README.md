@@ -2,7 +2,9 @@
 ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 
-Welcome to the CARRT Unity Challenge repository! This challenge is designed to test your coding skills as well as your proficiency in collaboration using Git. Follow the instructions below to get started and submit your solutions. To be clear this challenge will be split between 2 skill sets, working with Unity itself, and working with Web Technologies that interface with Unity, you can choose which skillset you'd prefer to showcase.
+Welcome to the CARRT Unity Challenge repository! This challenge is designed to test your coding skills as well as your proficiency in collaboration using Git. Follow the instructions below to get started and submit your solutions. 
+
+**To be clear** this challenge will be split between 2 skill sets, working with Unity itself, and working with Web Technologies that interface with Unity, you can choose which skillset you'd prefer to showcase.
 
 ## Getting Started
 
