@@ -99,8 +99,23 @@ https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
 
 ### Level 2: Make it pretty
 - **Task**: Modify `main.js` and `index.html` inside `WebChallengeScripts/Server/static`:
-   - Parse the incoming data coming from the websocket messages and plot it
-   - Feel free to use the same graphs from the Demo below but also feel free to be creative
+   - Parse the incoming data coming from the websocket messages and plot it. The API follow this format for messages:
+      ```js
+      {
+        "posX": float,   // X-coordinate of the object's position
+        "posY": float,   // Y-coordinate of the object's position
+        "posZ": float,   // Z-coordinate of the object's position
+        "eulerX": float, // X-angle (roll) in Euler coordinates
+        "eulerY": float, // Y-angle (pitch) in Euler coordinates
+        "eulerZ": float, // Z-angle (yaw) in Euler coordinates
+        "velX": float,   // X-component of velocity
+        "velY": float,   // Y-component of velocity
+        "velZ": float,   // Z-component of velocity
+        "velAbs": float, // Absolute velocity magnitude
+        "time": float    // Timestamp of the data
+      }
+      ```
+   - Feel free to use the same graphs from the Demo below but also feel free to be creative and come up with your own
    - The use of the Javascript Canvas is encouraged but not required
    - Make sure your final solution reflects changes in realtime as they are ocurring in the simulation
    - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and then access the HTML via [localhost:8080](http://localhost:8080/)
