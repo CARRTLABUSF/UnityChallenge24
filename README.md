@@ -39,6 +39,7 @@ To submit your solutions, follow these steps:
 **Demo Videos Suggestion**:
    - Use [WeTransfer](https://wetransfer.com/) to upload your video demos and get the links to put in your pull request.
 
+<br><br><br>
 ## Unity Coding Skills Challenge
 In this Category you will be building a very simple Unity game that makes use of skills and tools we require for developing VR simulations.
 
@@ -79,18 +80,21 @@ Be Creative and showcase a little more than just this basic game. Here are some 
 - Include a Canvas UI to show the remaining lives
 - Make a small full game out of this, with menu, points, restart button, etc.
 
+<br><br><br>
 ## Web technology integration skills Challenge
 
-For this Category, a Unity simulation has already been built for you is under `WebChallengeScripts/WebChallengeScene`. Your tasks will be centered around being able to get data out of this simulation to a server and then onto a Frontend interface.
+For this Category, a Unity simulation has already been given to you, is a flight simulation for pilots in outer space. You can find it under: `WebChallengeScripts/WebChallengeScene`.
 
-> For your convinience only reference the folder `WebChallengeScripts`.
+Your tasks will be centered around being able to get data out of this simulation to a server and then onto a Frontend interface, so that ground control can monitor the Pilots training.
+
+> For your convinience everything you will need to modify or run is inside the folder ***Assets/WebChallengeScripts***.
 
 ### Level 1: Sending UDP packets to a server
 - **Task**: Modify `NetworkManager.cs` to:
    - Complete the SendPosition function to get the Position, Velocity and Rotation of the target object (use the helper functions already written)
    - Leverage the `UDP_Data` data structure to package the most recent data (Hint: Research about JSONUtility)
    - Figure out how to use the UDPClient object to send the data to the server
-   - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and see if your messages are coming through
+   - To verify proper functionality. Run the `server.exe` that can be found in the ***WebChallengeScripts/Server*** folder and see if your messages are coming through
 
 
 https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
@@ -98,8 +102,8 @@ https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
 
 
 ### Level 2: Make it pretty
-- **Task**: Modify `main.js` and `index.html` inside `WebChallengeScripts/Server/static`:
-   - Parse the incoming data coming from the websocket messages and plot it. The API follow this format for messages:
+- **Task**: Modify `main.js` and `index.html` inside ***WebChallengeScripts/Server/static***:
+   - Parse the incoming data coming from the websocket messages. This is the API format for messages:
       ```js
       {
         "posX": float,   // X-coordinate of the object's position
@@ -115,10 +119,11 @@ https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
         "time": float    // Timestamp of the data
       }
       ```
-   - Feel free to use the same graphs from the Demo below but also feel free to be creative and come up with your own
+   - Use Javascript, CSS, and HTML to graph the incoming data
+     > Feel free to use the same graphs from the Demo below but also feel free to be creative and come up with your own
    - The use of the Javascript Canvas is encouraged but not required
    - Make sure your final solution reflects changes in realtime as they are ocurring in the simulation
-   - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and then access the HTML via [localhost:8080](http://localhost:8080/)
+   - To verify proper functionality. Run the `server.exe` that can be found in the ***WebChallengeScripts/Server*** folder and then access the HTML via [localhost:8080](http://localhost:8080/)
 
 >**NOTE** if you are not that comfortable with the `Golang` programming language, feel free to stop here but a good tip is to make the best frontend application you can possibly make, go above and beyond to plot that data in a satyisfying way.
 
