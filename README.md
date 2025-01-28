@@ -121,19 +121,18 @@ https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
       ```
    - Use Javascript, CSS, and HTML to graph the incoming data
      > Feel free to use the same graphs from the Demo below but also feel free to be creative and come up with your own
-   - The use of the Javascript Canvas is encouraged but not required
+     > The use of the Javascript Canvas is encouraged but not required
    - Make sure your final solution reflects changes in realtime as they are ocurring in the simulation
    - To verify proper functionality. Run the `server.exe` that can be found in the ***WebChallengeScripts/Server*** folder and then access the HTML via [localhost:8080](http://localhost:8080/)
-
->**NOTE** if you are not that comfortable with the `Golang` programming language, feel free to stop here but a good tip is to make the best frontend application you can possibly make, go above and beyond to plot that data in a satyisfying way.
 
 
 
 https://github.com/user-attachments/assets/d998367c-161f-4710-8b2c-3043122322e6
 
 
+>**NOTE** if you are not that comfortable with working on Backend or the `Golang` programming language, feel free to stop at Level 2 and just make sure to make an outstanding and realtime frontend
 
-### Level 3: Send video feed
+### Level 3: Modify backend to handle video feed
 - **Task**: Create a whole new pipeline to send video feed from Unity:
    - Modify `NetworkManager.cs` to include another Coroutine specifically to send images. Leverage the helper function `GetImageBytes()`. (Hint: Suggest to send small images over UDP)
    - Make sure you send the images to a different server port than the position message
