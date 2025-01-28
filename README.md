@@ -36,7 +36,7 @@ To submit your solutions, follow these steps:
 
 As stated before, the challenge is split between 2 categories. Please choose the one you'd like to demonstrate more of your skills about. You don't have to do both categories of the Challenge to submit the PUll Request:
 
--[ Unity Coding Skills](https://github.com/CARRTLABUSF/UnityChallenge24?tab=readme-ov-file#unity-coding-skills-challenge)
+- [Unity Coding Skills](https://github.com/CARRTLABUSF/UnityChallenge24?tab=readme-ov-file#unity-coding-skills-challenge)
 - [Web technology integration skills](https://github.com/CARRTLABUSF/UnityChallenge24/?tab=readme-ov-file#web-technology-integration-skills-challenge)
 
 Each category will have different levels. You don't have to complete all of them to submit the challenge, feel free to go above and beyond at each level.
