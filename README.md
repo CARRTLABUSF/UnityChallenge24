@@ -39,13 +39,13 @@ As stated before, the challenge is split between 2 categories
 - Unity Coding Skills
 - Web technology integration skills
 
-Each category will have different levels. You don't have to complete all of them to submit the challenge, but each level evaluates a unique skill useful for our projects.
+Each category will have different levels. You don't have to complete all of them to submit the challenge, you free to go above and beyond at each level.
 
 ## Unity Coding Skills Challenge
 ### Level 1: Moving Laser Hand
 
 **Task**:
-- Modify the script `HandController.cs` to make the hand move back and forth in the scene
+- Modify the scripts make the hand move back and forth in the scene
 - Next modify `LaserHand.cs` to use Physics Raycasts to destroy the sphere when the hand in front of it.
 
 
@@ -56,8 +56,7 @@ https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/4217461c-1c0e-4d
 ### Level 2: Instantiating Prefabs
 
 - **Task**: Modify the script labeled `GameManager.cs` to:
-  - Instantiate prefabs that are under resources.
-  - Make the prefabs children of `SkipperPos` and `SkateboardPos` respectively in the scene.
+  - Instantiate prefabs.
   - Ensure prefabs are positioned correctly in the world space
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/b03f1f98-7c6d-4fcb-98cf-611404c68305
@@ -67,21 +66,55 @@ https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/b03f1f98-7c6d-4f
 - **Task**: Modify `LaserHand.cs` and `SphereController.cs`:
   - Prevent the sphere from being destroyed until the 5th hit by the LaserHand raycast. LIke having 5 lives
   - Only `SphereController.cs` must be the one keeping track of the `lives` remaining.
+  - Once all the lives are gone, make the Scene Restart after 5 seconds
+  - Utilize at least one co-routine for any of the above
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/7bce5954-11fc-4d35-af8b-85a9042821e5
 
-## Extras
+### Extras
 
 These tasks are optional but demonstrate creativity:
 
-- Change the skybox of the scene.
-- Adjust the color of the material of the hand for better visibility.
-- Customize the sphere or any other .fbx models to your preference.
+- Change the skybox of the scene, materials, or FBX models
+- Include a Canvas UI to show the remaining lives
+- Make a full game out of this
 
 Feel free to explore these extras to showcase your skills!
 
 ## Web technology integration skills Challenge
-## Level 1
+For this version of the challenge only reference the folder `WebChallengeScripts`. There will be some level of Unity involved but it will also be mostly the testing of Frontend and Backend skills:
+
+### Level 1: Sending UDP packets to a server
+- **Task**: Modify `NetworkManager.cs` to:
+   - Complete the SendPosition function to get the Position, Velocity and Rotation of the target object (use the helper functions already written)
+   - Leverage the `UDP_Data` data structure to package the most recent data (Hint: Research about JSONUtility)
+   - Figure out how to use the UDPClient object to send the data to the server
+   - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and see if your messages are coming through
+
+
+### Level 2: Make it pretty
+- **Task**: Modify `main.js` and `index.html` inside `WebChallengeScripts/Server/static`:
+   - Parse the incoming data coming from the websocket messages and plot it
+   - Feel free to use the same graphs from the Demo below but also feel free to be creative
+   - The use of the Javascript Canvas is encouraged but not required
+   - Make sure your final solution reflects changes in realtime as they are ocurring in the simulation
+   - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and then access the HTML via [localhost:8080](http://localhost:8080/)
+
+
+
+>**NOTE** if you are not that comfortable with the `Golang` programming language, feel free to stop here but a good tip is to make the best frontend application you can possibly make, go above and beyond to plot that data in a satyisfying way.
+
+### Level 3: Send video feed
+- **Task**: Create a whole new pipeline to send video feed from Unity:
+   - Modify `NetworkManager.cs` to include another Coroutine specifically to send images. Leverage the helper function `GetImageBytes()`. (Hint: Suggest to send small images over UDP)
+   - Make sure you send the images to a different server port than the position message
+   - Modify `main.go` inside *WebChallengeScripts/server* to create a new UDP listener at the new server port you have defined for image messages
+   - Modify `main.go` to enable relaying to the frontend the incoming images. There are multiple ways to achieve this. (Hint: attempt to leverage the already existing Websocket connection with the frontend.)
+   - Moidfy `index.html` and `main.js` that you already modified for level 2, but this time add handling such that it can display the incoming images from the server.
+   - To verify proper functionality just run `go run main.go` or build it `go build -o server.exe` and then run `./server.exe`
+
+>**NOTE** for this task you must install the Golang programming language in your computer, if you don't have it go [here](https://go.dev/)
+
 
 
 
