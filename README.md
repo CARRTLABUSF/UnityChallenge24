@@ -6,10 +6,10 @@ Welcome to the CARRT Unity Challenge repository! This challenge is designed to t
 
 ## Challenge Format
 
-As stated before, the challenge is split between 2 categories. Please choose the one you'd like to demonstrate more of your skills about. You don't have to do both categories of the Challenge to submit the PUll Request:
+As stated before, the challenge is split between 2 categories. Please choose the one you'd like to demonstrate more of your skills about. You don't have to do both categories of the Challenge to submit the pull Request:
 
-- [Unity Coding Skills](https://github.com/CARRTLABUSF/UnityChallenge24?tab=readme-ov-file#unity-coding-skills-challenge)
-- [Web technology integration skills](https://github.com/CARRTLABUSF/UnityChallenge24/?tab=readme-ov-file#web-technology-integration-skills-challenge)
+- [Unity Coding Skills](https://github.com/CARRTLABUSF/UnityChallenge24?tab=readme-ov-file#unity-coding-skills-challenge) : This category is for those seeking to showcase their skills in C#, Unity, 3D, Game Dev, etc.
+- [Web technology integration skills](https://github.com/CARRTLABUSF/UnityChallenge24/?tab=readme-ov-file#web-technology-integration-skills-challenge): This category is for those seeking to showcase their web development skills, it will involve a little bit of Unity, but the bulk of the work has to do with frontend, backend, APIs, etc.
 
 Each category will have different levels. You don't have to complete all of them to submit the challenge, feel free to go above and beyond at each level.
 
@@ -40,11 +40,13 @@ To submit your solutions, follow these steps:
    - Use [WeTransfer](https://wetransfer.com/) to upload your video demos and get the links to put in your pull request.
 
 ## Unity Coding Skills Challenge
+In this Category you will be building a very simple Unity game that makes use of skills and tools we require for developing VR simulations.
+
 ### Level 1: Moving Laser Hand
 
 **Task**:
 - Modify the scripts make the hand move back and forth in the scene
-- Next modify `LaserHand.cs` to use Physics Raycasts to destroy the sphere when the hand in front of it.
+- Next modify `LaserHand.cs` to use to destroy the sphere when the hand in front of it. Don't use hard-coded cooridnates to achieve this, look into what Physics tools unity has to offer.
 
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/4217461c-1c0e-4dac-a88d-4c02063bcb42
@@ -69,18 +71,19 @@ https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/b03f1f98-7c6d-4f
 
 https://github.com/CARRTLABUSF/UnityChallenge24/assets/89555610/7bce5954-11fc-4d35-af8b-85a9042821e5
 
-### Extras
+### Level 4 : Take it beyond
 
-These tasks are optional but demonstrate creativity:
+Be Creative and showcase a little more than just this basic game. Here are some ideas:
 
-- Change the skybox of the scene, materials, or FBX models
+- Change the skybox of the scene, materials, or FBX models (keep it Safe For Work please)
 - Include a Canvas UI to show the remaining lives
-- Make a full game out of this
-
-Feel free to explore these extras to showcase your skills!
+- Make a small full game out of this, with menu, points, restart button, etc.
 
 ## Web technology integration skills Challenge
-For this version of the challenge only reference the folder `WebChallengeScripts`. There will be some level of Unity involved but it will also be mostly the testing of Frontend and Backend skills:
+
+For this Category, a Unity simulation has already been built for you is under `WebChallengeScripts/WebChallengeScene`. Your tasks will be centered around being able to get data out of this simulation to a server and then onto a Frontend interface.
+
+> For your convinience only reference the folder `WebChallengeScripts`.
 
 ### Level 1: Sending UDP packets to a server
 - **Task**: Modify `NetworkManager.cs` to:
