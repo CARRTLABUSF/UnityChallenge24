@@ -134,10 +134,12 @@ https://github.com/user-attachments/assets/d998367c-161f-4710-8b2c-3043122322e6
 
 ### Level 3: Modify backend to handle video feed
 - **Task**: Create a whole new pipeline to send video feed from Unity:
-   - Modify `NetworkManager.cs` to include another Coroutine specifically to send images. Leverage the helper function `GetImageBytes()`. (Hint: Suggest to send small images over UDP)
+   - Modify `NetworkManager.cs` to include another Coroutine specifically to send images. Leverage the helper function `GetImageBytes()`.
+     > Note: It's ok to send low resolution and small images
    - Make sure you send the images to a different server port than the position message
    - Modify `main.go` inside *WebChallengeScripts/server* to create a new UDP listener at the new server port you have defined for image messages
-   - Modify `main.go` to enable relaying to the frontend the incoming images. There are multiple ways to achieve this. (Hint: attempt to leverage the already existing Websocket connection with the frontend.)
+   - Modify `main.go` to enable relaying to the frontend the incoming images. There are multiple ways to achieve this
+     > Hint: Try to leverage the already existing Websocket connection with the frontend, not the most optimal but it's simple
    - Moidfy `index.html` and `main.js` that you already modified for level 2, but this time add handling such that it can display the incoming images from the server.
    - To verify proper functionality just run `go run main.go` or build it `go build -o server.exe` and then run `./server.exe`
 
