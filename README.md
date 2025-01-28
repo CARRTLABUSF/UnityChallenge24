@@ -34,12 +34,12 @@ To submit your solutions, follow these steps:
 
 ## Challenge Format
 
-As stated before, the challenge is split between 2 categories
+As stated before, the challenge is split between 2 categories. Please choose the one you'd like to demonstrate more of your skills about. You don't have to do both categories of the Challenge to submit the PUll Request:
 
 - Unity Coding Skills
 - Web technology integration skills
 
-Each category will have different levels. You don't have to complete all of them to submit the challenge, you free to go above and beyond at each level.
+Each category will have different levels. You don't have to complete all of them to submit the challenge, feel free to go above and beyond at each level.
 
 ## Unity Coding Skills Challenge
 ### Level 1: Moving Laser Hand
@@ -92,6 +92,10 @@ For this version of the challenge only reference the folder `WebChallengeScripts
    - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and see if your messages are coming through
 
 
+https://github.com/user-attachments/assets/4bff86e2-d104-42ab-a742-0608be6cfb4b
+
+
+
 ### Level 2: Make it pretty
 - **Task**: Modify `main.js` and `index.html` inside `WebChallengeScripts/Server/static`:
    - Parse the incoming data coming from the websocket messages and plot it
@@ -100,9 +104,13 @@ For this version of the challenge only reference the folder `WebChallengeScripts
    - Make sure your final solution reflects changes in realtime as they are ocurring in the simulation
    - To verify proper functionality. Run the `server.exe` that can be found in the `WebChallenge/Server` folder and then access the HTML via [localhost:8080](http://localhost:8080/)
 
-
-
 >**NOTE** if you are not that comfortable with the `Golang` programming language, feel free to stop here but a good tip is to make the best frontend application you can possibly make, go above and beyond to plot that data in a satyisfying way.
+
+
+
+https://github.com/user-attachments/assets/d998367c-161f-4710-8b2c-3043122322e6
+
+
 
 ### Level 3: Send video feed
 - **Task**: Create a whole new pipeline to send video feed from Unity:
@@ -115,7 +123,7 @@ For this version of the challenge only reference the folder `WebChallengeScripts
 
 >**NOTE** for this task you must install the Golang programming language in your computer, if you don't have it go [here](https://go.dev/)
 
-
+https://github.com/user-attachments/assets/33a303c8-0dde-4f9a-9f9c-eef2b932589d
 
 
 ## Foreword
