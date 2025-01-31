@@ -38,3 +38,5 @@ To submit your solutions, follow these steps:
 
 **Demo Videos Suggestion**:
    - Use [WeTransfer](https://wetransfer.com/) to upload your video demos and get the links to put in your pull request.
+## Technical Issues
+ If you encounter technical issues (e.g., unity simulation not running, server executable not running, pull requests permissions issues), please open a GitHub issue with a screenshot. However, questions related to interpreting the challenge, clarifications on tasks, or how to achieve a solution will not be addressed, as part of this role involves independently understanding and implementing project requirements. We look forward to reviewing your submission!
