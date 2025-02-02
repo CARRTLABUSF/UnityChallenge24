@@ -27,6 +27,21 @@ public class NetworkManager : MonoBehaviour
                         float velX, float velY, float velZ, float velAbs, float time)
         {
             // <==== LEVEL 1: COMPLETE CONSTRUCTOR
+                this.posX = posX;
+                this.posY = posY;
+                this.posZ = posZ;
+
+                this.eulerX = eulerX;
+                this.eulerY = eulerY;
+                this.eulerZ = eulerZ;
+
+                this.velX = velX;
+                this.velY = velY;
+                this.velZ = velZ;
+                this.velAbs = velAbs;
+
+                this.time = time;
+
         }
     }
 
@@ -72,7 +87,28 @@ public class NetworkManager : MonoBehaviour
 
     void SendPosition()
     {
-        //<==== LEVEL 1: COMPLETE ...
+        if (targetObject == null) return;
+
+        // Initialize all variables
+        float posX = 0.0f, posY = 0.0f, posZ = 0.0f;
+        float velX = 0.0f, velY = 0.0f, velZ = 0.0f, velAbs = 0.0f;
+        float eulerX = 0.0f, eulerY = 0.0f, eulerZ = 0.0f;
+
+        // Get object data
+        GetObjectPosition(targetObject, ref posX, ref posY, ref posZ);
+        GetObjectVelocity(targetObject, ref velX, ref velY, ref velZ, ref velAbs);
+        GetObjectRotation(targetObject, ref eulerX, ref eulerY, ref eulerZ);
+
+        float time = Time.time;
+
+        UDP_Data udp_data = new UDP_Data(posX, posY, posZ, eulerX, eulerY, eulerZ, velX, velY, velZ, velAbs, time);
+
+        string jsonData = JsonUtility.ToJson(udp_data);
+        byte[] sendBytes = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
+        positionClient.Send(sendBytes, sendBytes.Length, serverIP, positionPort);
+        Debug.Log("Sent position data: " + jsonData);
+
     }
 
 
