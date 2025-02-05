@@ -15,7 +15,7 @@ Implemented Hand Movement (HandController.cs)
 Part 2: Instantiating Prefabs
 
     1.Instantiates two prefabs (GameManager.cs) dynamically at runtime.
-    2.Avoids multiple instantiations by checking if clones already exist.
+    2.Avoid multiple instantiations by checking if clones already exist.
     3.Ensures correct positioning by using predefined spawn positions.
 
 Part 3: Game Object Lives
