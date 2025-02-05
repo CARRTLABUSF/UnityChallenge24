@@ -1,17 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Data Viewer</title>
-  <style>
-    /*Insert your CSS here*/
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Data Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            color: black;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            justify-content: center;
+            padding: 10px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .velocity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            justify-content: center;
+            padding: 10px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .chart-container {
+            width: 300px;
+            height: 200px;
+            margin: auto;
+        }
+        .rotation-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        .rotation-box {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 60px solid red; /* Default Red */
+        }
+    </style>
 </head>
 <body>
-  <h1>Unity Data Viewer</h1>
 
+    <h1>Unity Data Viewer</h1>
 
-  <script src="main.js"></script>
+    <!-- Path Tracking Graphs -->
+    <div class="grid-container">
+        <canvas id="pathXZ" class="chart-container"></canvas>
+        <canvas id="pathXY" class="chart-container"></canvas>
+    </div>
+
+    <!-- Velocity Graphs -->
+    <div class="velocity-grid">
+        <canvas id="velocityX" class="chart-container"></canvas>
+        <canvas id="velocityY" class="chart-container"></canvas>
+        <canvas id="velocityZ" class="chart-container"></canvas>
+        <canvas id="absoluteVelocity" class="chart-container"></canvas>
+    </div>
+
+    <!-- Rotation Indicators -->
+    <div class="rotation-container">
+        <div class="rotation-box">
+            <p>X Axis Rotation</p>
+            <div class="arrow" id="rotationX"></div>
+        </div>
+        <div class="rotation-box">
+            <p>Y Axis Rotation</p>
+            <div class="arrow" id="rotationY" style="border-bottom-color: green;"></div>
+        </div>
+        <div class="rotation-box">
+            <p>Z Axis Rotation</p>
+            <div class="arrow" id="rotationZ" style="border-bottom-color: blue;"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
 </body>
 </html>
