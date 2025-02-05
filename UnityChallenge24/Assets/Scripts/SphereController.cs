@@ -1,15 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SphereController : MonoBehaviour
 {
-    void Start()
+    public void TakeDamage()
     {
-        
-    }
-    void Update()
-    {
-        
+        Destroy(gameObject);
     }
 }
