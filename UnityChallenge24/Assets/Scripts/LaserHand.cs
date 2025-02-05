@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class LaserHand : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Debug.DrawRay(transform.position, Vector3.left * 5, Color.red);
+        if (Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit))
+        {
+            if (hit.transform.CompareTag("Destroyable"))
+            {
+                Destroy(hit.transform.gameObject);
+            }
+        }
     }
 }
