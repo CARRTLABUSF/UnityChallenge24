@@ -505,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.7
   frequency: 1
-  initialOffset: 1.4
+  initialOffset: 0.7
 --- !u!114 &1434669015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,8 +594,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff53836748404840a9fd21c5a875b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipperPosition: {fileID: 1953827564}
-  skateboardPosition: {fileID: 1635608562}
+  skipperSpawnPoint: {fileID: 1953827564}
+  skipperPrefab: {fileID: 919132149155446097, guid: c3c49d721fa17034ca84c1059add9844, type: 3}
+  skipperRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  skateboardSpawnPoint: {fileID: 1635608562}
+  skateboardPrefab: {fileID: 919132149155446097, guid: 801d57efab1a0c44bbaae08ec3e8cb7b, type: 3}
+  skateboardRotation: {x: 0.74274576, y: -0.448799, z: -0.3527927, w: -0.3499224}
 --- !u!4 &1845018903
 Transform:
   m_ObjectHideFlags: 0

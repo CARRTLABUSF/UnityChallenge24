@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LaserHand : MonoBehaviour
 {
-    // Update is called once per frame
     void FixedUpdate()
     {
         Debug.DrawRay(transform.position, Vector3.left * 5, Color.red);

@@ -10,6 +10,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private float initialOffset; 
     
     private Vector3 _startPos;
+    
     private void Start()
     {
         _startPos = transform.position;

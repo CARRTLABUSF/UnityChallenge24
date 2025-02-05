@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject skipperPosition;
-    public GameObject skateboardPosition;
-    // Start is called before the first frame update
-    void Start()
+    [Header("Skipper")]
+    [SerializeField] private GameObject skipperSpawnPoint;
+    [SerializeField] private GameObject skipperPrefab;
+    [SerializeField] private Quaternion skipperRotation;
+    [Header("Skateboard")]
+    [SerializeField] private GameObject skateboardSpawnPoint;
+    [SerializeField] private GameObject skateboardPrefab;
+    [SerializeField] private Quaternion skateboardRotation;
+    private void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Spawn skipper object and set its position w rotation 
+        Instantiate(skipperPrefab, skipperSpawnPoint.transform.position, skipperRotation, skipperSpawnPoint.transform);
+        //Spawn skateboard object and set its position w rotation 
+        Instantiate(skateboardPrefab, skateboardSpawnPoint.transform.position, skateboardRotation, skateboardSpawnPoint.transform);
     }
 }
