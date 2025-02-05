@@ -8,15 +8,6 @@ public class GameManager : MonoBehaviour
 {
     private const float kRestartTime = 5f;
     public static GameManager Instance;
-    
-    [Header("Skipper")]
-    [SerializeField] private GameObject skipperSpawnPoint;
-    [SerializeField] private GameObject skipperPrefab;
-    [SerializeField] private Quaternion skipperRotation;
-    [Header("Skateboard")]
-    [SerializeField] private GameObject skateboardSpawnPoint;
-    [SerializeField] private GameObject skateboardPrefab;
-    [SerializeField] private Quaternion skateboardRotation;
 
     private void Awake()
     {
@@ -26,17 +17,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        //Spawn skipper object and set its position w rotation 
-        Instantiate(skipperPrefab, 
-                    skipperSpawnPoint.transform.position, 
-                    skipperRotation, 
-                    skipperSpawnPoint.transform);
         
-        //Spawn skateboard object and set its position w rotation 
-        Instantiate(skateboardPrefab, 
-                    skateboardSpawnPoint.transform.position, 
-                    skateboardRotation, 
-                    skateboardSpawnPoint.transform);
     }
 
     public void RestartGame()

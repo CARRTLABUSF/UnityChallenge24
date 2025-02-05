@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LaserHand : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePref;
+    
+    
     private bool _collidedLastFixedUpdate;
     private void FixedUpdate()
     {
@@ -14,7 +17,13 @@ public class LaserHand : MonoBehaviour
             if (hit.transform.CompareTag("Destroyable"))
             {
                 _collidedLastFixedUpdate = true;
-                hit.transform.GetComponent<SphereController>().Damage(1);
+                var rb = Instantiate(projectilePref, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+                rb.AddForce(-transform.right * 4, ForceMode.Impulse);
+                
+                Destroy(rb.gameObject, 4f);
+                
+                // hit.transform.GetComponent<SphereController>().Damage(1);
             }
         }
         else
