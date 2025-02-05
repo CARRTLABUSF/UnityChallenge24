@@ -595,6 +595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipperPosition: {fileID: 1953827564}
   skateboardPosition: {fileID: 1635608562}
+  SkipperPrefab: {fileID: 9119436221954603567, guid: dbc2ae00021156742915d518cf697132, type: 3}
+  SkateboardPrefab: {fileID: 7497977669379911314, guid: 9ce98820783929349bb85b188dbe2361, type: 3}
 --- !u!4 &1845018903
 Transform:
   m_ObjectHideFlags: 0
