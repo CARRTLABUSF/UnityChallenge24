@@ -19,13 +19,13 @@ public class HandController : MonoBehaviour
 
     private void Update()
     {
-        MoveWithSin();
+        Move();
     }
 
     /// <summary>
-    /// Moves the hand using Sin function making it smooth and simple
+    /// Move the hand using the Sin function
     /// </summary>
-    private void MoveWithSin()
+    private void Move()
     {
         Vector3 newPos = _startPos;
         newPos.z += Mathf.Sin(Time.time * frequency + initialOffset) * amplitude;
