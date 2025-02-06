@@ -27,6 +27,17 @@ public class NetworkManager : MonoBehaviour
                         float velX, float velY, float velZ, float velAbs, float time)
         {
             // <==== LEVEL 1: COMPLETE CONSTRUCTOR
+            this.posX = posX;
+            this.posY = posY;
+            this.posZ = posZ;
+            this.eulerX = eulerX;
+            this.eulerY = eulerY;
+            this.eulerZ = eulerZ;
+            this.velX = velX;
+            this.velY = velY;
+            this.velZ = velZ;
+            this.velAbs = velAbs;
+            this.time = time;
         }
     }
 
@@ -38,17 +49,20 @@ public class NetworkManager : MonoBehaviour
     // SERVER PARAMETERS
     public string serverIP = "127.0.0.1"; // Server IP
     public int positionPort = 9090; // Port for positional data
-    public int ImagePort = 9091; // <==== Hint for LEVEL 3
+    public int imagePort = 9091; // <==== Hint for LEVEL 3
 
     public float positionPeriod = 0.5f; // seconds between sending position data to server
     private UdpClient positionClient; // <==== USE TO COMMUNICATE WITH SERVER
+    // private UdpClient imageClient;
 
 
 
     void Start()
     {
         positionClient = new UdpClient();
+        // imageClient = new UdpClient();
         StartCoroutine(SendPositionCoroutine());
+        // StartCoroutine(SendImageCoroutine());
     }
 
     void OnApplicationQuit()
@@ -73,6 +87,21 @@ public class NetworkManager : MonoBehaviour
     void SendPosition()
     {
         //<==== LEVEL 1: COMPLETE ...
+        float posX = 0, posY = 0, posZ = 0;
+        float velX = 0, velY = 0, velZ = 0, velAbs = 0;
+        float eulerX = 0, eulerY = 0, eulerZ = 0;
+
+        GetObjectPosition(targetObject, ref posX, ref posY, ref posZ);
+        GetObjectVelocity(targetObject, ref velX, ref velY, ref velZ, ref velAbs);
+        GetObjectRotation(targetObject, ref eulerX, ref eulerY, ref eulerZ);
+
+        UDP_Data data = new UDP_Data(posX, posY, posZ, eulerX, eulerY, eulerZ, velX, velY, velZ, velAbs, Time.time);
+
+        string jsonData = JsonUtility.ToJson(data);
+
+        byte[] sendBytes = Encoding.UTF8.GetBytes(jsonData);
+
+        positionClient.Send(sendBytes, sendBytes.Length, serverIP, positionPort);
     }
 
 

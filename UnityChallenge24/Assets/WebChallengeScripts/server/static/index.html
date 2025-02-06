@@ -6,11 +6,89 @@
   <title>Unity Data Viewer</title>
   <style>
     /*Insert your CSS here*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chart-wrapper {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            max-width: 80%; 
+            margin: 0 auto;
+        }
+        .chart-container {
+            width: 100%;
+            display: inline-block;
+            margin: 10px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box; 
+        }
+        .chart {
+            width: 100%;
+            height: 500px;
+        }
+        canvas {
+            width: 60%;
+            height: 100%;
+        }
+        
   </style>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <body>
   <h1>Unity Data Viewer</h1>
-
+    <!-- Chart Containers -->
+    <div class="chart-wrapper">
+        <div class="chart-container">
+            <div id="pathXYChart" class="chart" style="width: 100;"></div>
+        </div>
+        <div class="chart-container">
+            <div id="pathXZChart" class="chart"></div>
+        </div>
+    </div>
+    <div class="chart-wrapper">
+    <div class="chart-container">
+        <div id="velocityXChart" class="chart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="velocityYChart" class="chart"></div>
+    </div>
+    </div>
+    <div class="chart-wrapper">
+    <div class="chart-container">
+        <div id="velocityZChart" class="chart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="absoluteVelocityChart" class="chart"></div>
+    </div>
+    </div>
+    <div class="chart-wrapper">
+    <div class="chart-container">
+        <h2>Rotation (X)</h2>
+        <canvas id="rotationXChart"></canvas>
+        <div id = 'rotationXAngle'>Angle 0°</div>
+    </div>
+    <div class="chart-container" >
+        <h2>Rotation (Y)</h2>
+        <canvas id="rotationYChart"></canvas>
+        <div id = 'rotationYAngle'>Angle 0°</div>
+    </div>
+    <div class="chart-container" >
+        <h2>Rotation (Z)</h2>
+        <canvas id="rotationZChart"></canvas>
+        <div id = 'rotationZAngle'>Angle 0°</div>
+    </div>
+    </div>
+    
 
   <script src="main.js"></script>
 </body>
