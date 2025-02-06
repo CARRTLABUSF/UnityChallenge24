@@ -53,16 +53,16 @@ public class NetworkManager : MonoBehaviour
 
     public float positionPeriod = 0.5f; // seconds between sending position data to server
     private UdpClient positionClient; // <==== USE TO COMMUNICATE WITH SERVER
-    // private UdpClient imageClient;
+    private UdpClient imageClient;
 
 
 
     void Start()
     {
         positionClient = new UdpClient();
-        // imageClient = new UdpClient();
+        imageClient = new UdpClient();
         StartCoroutine(SendPositionCoroutine());
-        // StartCoroutine(SendImageCoroutine());
+        StartCoroutine(SendImageCoroutine());
     }
 
     void OnApplicationQuit()
@@ -70,7 +70,18 @@ public class NetworkManager : MonoBehaviour
         positionClient.Close(); //ALL UDP Connections should close here
     }
 
-
+    private IEnumerator SendImageCoroutine()
+    {
+        while (true)
+        {
+            if (targetCamera != null)
+            {
+                byte[] imageBytes = GetImageBytes(); 
+                imageClient.Send(imageBytes, imageBytes.Length, serverIP, imagePort);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     private IEnumerator SendPositionCoroutine()
     {

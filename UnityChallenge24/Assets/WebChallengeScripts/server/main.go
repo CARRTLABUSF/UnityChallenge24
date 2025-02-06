@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/http"
 	"sync"
-
+	"os"
 	"github.com/gorilla/websocket"
 )
 
@@ -146,4 +146,51 @@ func broadcastToWebClients(message string) { // <=== FUNCTION TO SEND WEBSOCKET 
 
 func startImageUDPServer(port string) {
 	//LEVEL 3: COMPLETE ...
+	udpAddr, err := net.ResolveUDPAddr("udp", port)
+	if err != nil {
+		log.Fatalf("Failed to resolve image UDP address: %v", err)
+	}
+
+	conn, err := net.ListenUDP("udp", udpAddr)
+	if err != nil {
+		log.Fatalf("Failed to listen on image UDP: %v", err)
+	}
+	defer conn.Close()
+
+	fmt.Printf("Image UDP server running on port %s\n", port)
+
+	buffer := make([]byte, 65536) 
+	for {
+		n, addr, err := conn.ReadFromUDP(buffer)
+		if err != nil {
+			log.Printf("Error reading from image UDP: %v", err)
+			continue
+		}
+
+		imageBytes := buffer[:n]
+		err = os.WriteFile("spaceship.png", imageBytes, 0644)
+		if err != nil {
+			log.Printf("Failed to save image: %v", err)
+			continue
+		}
+		log.Printf("Image saved as spaceship.png from %s", addr.String())
+
+		broadcastImageToWebClients(imageBytes)
+	}
+}
+
+func broadcastImageToWebClients(imageBytes []byte) {
+	clientsMutex.Lock()
+	defer clientsMutex.Unlock()
+
+	for client := range clients {
+		err := client.WriteMessage(websocket.BinaryMessage, imageBytes)
+		if err != nil {
+			log.Printf("Error sending image to WebSocket client: %v", err)
+			client.Close()
+			delete(clients, client)
+		} else {
+			log.Printf("WebSocket sent image data")
+		}
+	}
 }

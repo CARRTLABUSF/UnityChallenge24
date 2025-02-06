@@ -1,22 +1,42 @@
 // WebSocket connection
 const socket = new WebSocket("ws://localhost:8080/ws");
 
+// Chart Ids
+const xyChartId = 'pathXYChart'
+const xzChartId = 'pathXZChart'
+const velXChartId = 'velocityXChart'
+const velYChartId = 'velocityYChart'
+const velZChartId = 'velocityZChart'
+const absVelChartId = 'absoluteVelocityChart'
+const rotXChartId = 'rotationXChart'
+const rotYChartId = 'rotationYChart'
+const rotZChartId = 'rotationZChart'
+
+// Labels
+const pathXYLabel = 'Path(X-Y)'
+const pathXZLabel = 'Path(X-Z)'
+const xLabel = 'X'
+const yLabel = 'Y'
+const zLabel = 'Z'
+const timeLabel = 'Time'
+const velLabel = 'Velocity'
+const velXLabel = 'Velocity(X)'
+const velYLabel = 'Velocity(Y)'
+const velZLabel = 'Velocity(Z)'
+const absVelLabel = 'Absolute Velocity'
 const charts = {
-  pathXY: createChart('pathXYChart', 'Path (X-Y)', 'X', 'Y'),
-  pathXZ: createChart('pathXZChart', 'Path (X-Z)', 'X', 'Z'),
-  velocityX: createChart('velocityXChart', 'Velocity (X)', 'Time', 'Velocity'),
-  velocityY: createChart('velocityYChart', 'Velocity (Y)', 'Time', 'Velocity'),
-  velocityZ: createChart('velocityZChart', 'Velocity (Z)', 'Time', 'Velocity'),
-  absoluteVelocity: createChart('absoluteVelocityChart', 'Absolute Velocity', 'Time', 'Velocity'),
-  rotationX: createChart('rotationXChart', 'Rotation (X)', 'Time', 'Angle', true),
-  rotationY: createChart('rotationYChart', 'Rotation (Y)', 'Time', 'Angle', true),
-  rotationZ: createChart('rotationZChart', 'Rotation (Z)', 'Time', 'Angle', true)
+  pathXY: createChart(xyChartId, pathXYLabel, xLabel, yLabel),
+  pathXZ: createChart(xzChartId, pathXZLabel, xLabel, zLabel),
+  velocityX: createChart(velXChartId, velXLabel, timeLabel, velLabel),
+  velocityY: createChart(velYChartId, velYLabel, timeLabel, velLabel),
+  velocityZ: createChart(velZChartId, velZLabel, timeLabel, velLabel),
+  absoluteVelocity: createChart(absVelChartId, absVelLabel, timeLabel, velLabel)
 };
 
 const rotationCharts = {
-  rotationX: initializeRotationChart('rotationXChart', 'rotationXAngle'),
-  rotationY: initializeRotationChart('rotationYChart', 'rotationYAngle'),
-  rotationZ: initializeRotationChart('rotationZChart', 'rotationZAngle')
+  rotationX: initializeRotationChart(rotXChartId, 'rotationXAngle'),
+  rotationY: initializeRotationChart(rotYChartId, 'rotationYAngle'),
+  rotationZ: initializeRotationChart(rotZChartId, 'rotationZAngle')
 };
 
 function initializeRotationChart(canvasId, angleDisplayId) {
@@ -70,25 +90,25 @@ function drawRotationChart(chart, angle, color) {
 }
 
 // Function to create a CanvasJS chart
-function createChart(containerId, title, xAxisTitle, yAxisTitle, isRotation = false) {
+function createChart(containerId, title, xAxisTitle, yAxisTitle) {
   return new CanvasJS.Chart(containerId, {
       title: {
           text: title,
           fontFamily: 'Arial',
-          fontSize: 18,
+          fontSize: 14,
           fontWeight: 'bold'
       },
       axisX: {
           title: xAxisTitle,
-          titleFontSize: 14,
+          titleFontSize: 10,
           titleFontFamily: 'Arial',
-          labelFontSize: 12
+          labelFontSize: 10
       },
       axisY: {
           title: yAxisTitle,
-          titleFontSize: 14,
+          titleFontSize: 10,
           titleFontFamily: 'Arial',
-          labelFontSize: 12
+          labelFontSize: 10
       },
       data: [{
           type: 'line',
@@ -105,7 +125,8 @@ socket.onopen = () => {
 socket.onmessage = (event) => {
   if (event.data instanceof Blob) {
     // Hint: Useful distinction
-
+        const blobUrl = URL.createObjectURL(event.data);
+        video.src = blobUrl; 
   } 
   else {
     try {
@@ -113,13 +134,13 @@ socket.onmessage = (event) => {
       console.log(data)
       //Handle incoming websocket messages
 
-      updateChart(charts.pathXY, data.time, { x: data.posX, y: data.posY });
-      updateChart(charts.pathXZ, data.time, { x: data.posX, y: data.posZ });
+      updateChart(charts.pathXY, { x: data.posX, y: data.posY });
+      updateChart(charts.pathXZ, { x: data.posX, y: data.posZ });
 
-      updateChart(charts.velocityX, data.time, { x: data.time, y: data.velX });
-      updateChart(charts.velocityY, data.time, { x: data.time, y: data.velY });
-      updateChart(charts.velocityZ, data.time, { x: data.time, y: data.velZ });
-      updateChart(charts.absoluteVelocity, data.time, {x: data.time, y: data.velAbs});  
+      updateChart(charts.velocityX, { x: data.time, y: data.velX });
+      updateChart(charts.velocityY, { x: data.time, y: data.velY });
+      updateChart(charts.velocityZ, { x: data.time, y: data.velZ });
+      updateChart(charts.absoluteVelocity, {x: data.time, y: data.velAbs});  
 
       drawRotationChart(rotationCharts.rotationX, data.eulerX, 'red');
       drawRotationChart(rotationCharts.rotationY, data.eulerY, 'green');
@@ -132,7 +153,7 @@ socket.onmessage = (event) => {
   }
 };
 
-function updateChart(chart, time, dataPoint) {
+function updateChart(chart, dataPoint) {
   const dataSeries = chart.options.data[0].dataPoints;
 
   dataSeries.push(dataPoint);

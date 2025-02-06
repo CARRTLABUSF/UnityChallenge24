@@ -40,7 +40,13 @@
             width: 60%;
             height: 100%;
         }
-        
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10%;
+            width: 40%;
+            }
   </style>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
@@ -73,22 +79,27 @@
     </div>
     <div class="chart-wrapper">
     <div class="chart-container">
-        <h2>Rotation (X)</h2>
+        <h2>Rotation(X)</h2>
         <canvas id="rotationXChart"></canvas>
         <div id = 'rotationXAngle'>Angle 0°</div>
     </div>
     <div class="chart-container" >
-        <h2>Rotation (Y)</h2>
+        <h2>Rotation(Y)</h2>
         <canvas id="rotationYChart"></canvas>
         <div id = 'rotationYAngle'>Angle 0°</div>
     </div>
     <div class="chart-container" >
-        <h2>Rotation (Z)</h2>
+        <h2>Rotation(Z)</h2>
         <canvas id="rotationZChart"></canvas>
         <div id = 'rotationZAngle'>Angle 0°</div>
     </div>
     </div>
-    
+    <div class="chart-wrapper">
+    <div class="chart-container">
+        <h2>Video</h2>
+        <img id="video" src="" alt="Video">
+    </div>
+    </div>
 
   <script src="main.js"></script>
 </body>
