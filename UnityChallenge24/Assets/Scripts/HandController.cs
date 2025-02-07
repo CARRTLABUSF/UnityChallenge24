@@ -8,10 +8,13 @@ public class HandController : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField, Min(0)] private float amplitude = 1f;
-    [SerializeField, Min(0)] private float frequency = 1f;
-    [SerializeField] private float initialOffset; 
-    
+    [SerializeField] private float initialOffset;
+
+    [SerializeField]
+    private StatsRef playerStats;
     private Vector3 _startPos;
+
+    private StatModifier _baseFrequencyModifier;
     
     private void Start()
     {
@@ -30,7 +33,8 @@ public class HandController : MonoBehaviour
     private void Move()
     {
         Vector3 newPos = _startPos;
-        newPos.z += Mathf.Sin(Time.time * frequency + initialOffset) * amplitude;
+        Debug.Log(playerStats.GetStatValue("frequency"));
+        newPos.z += Mathf.Sin(Time.time * playerStats.GetStatValue("frequency") + initialOffset) * amplitude;
         transform.position = newPos;
     }
 

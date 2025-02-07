@@ -22,8 +22,6 @@ public class LaserHand : MonoBehaviour
                 rb.AddForce(-transform.right * 4, ForceMode.Impulse);
                 
                 Destroy(rb.gameObject, 4f);
-                
-                // hit.transform.GetComponent<SphereController>().Damage(1);
             }
         }
         else
