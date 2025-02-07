@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/BetterGame/BetterGameMenu.unity
+    guid: 1732e009ea909fc47845844d079a173b
+  - enabled: 1
+    path: Assets/Scenes/BetterGame/BetterGame.unity
+    guid: e94b8bc1840404848aa8863e7a0bb322
+  - enabled: 1
+    path: Assets/Scenes/BetterGame/Settings.unity
+    guid: 08f555c8d2463ca4fbc4e3dda223530f
+  - enabled: 1
+    path: Assets/Scenes/BetterGame/Summary.unity
+    guid: c72567927afe23f4eb1cb07938e641b6
   m_configObjects: {}
