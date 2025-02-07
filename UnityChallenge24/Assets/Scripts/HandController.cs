@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class HandController : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip coinsCollectSound;
     [SerializeField, Min(0)] private float amplitude = 1f;
     [SerializeField] private float initialOffset;
 
@@ -33,16 +33,13 @@ public class HandController : MonoBehaviour
     private void Move()
     {
         Vector3 newPos = _startPos;
-        Debug.Log(playerStats.GetStatValue("frequency"));
         newPos.z += Mathf.Sin(Time.time * playerStats.GetStatValue("frequency") + initialOffset) * amplitude;
         transform.position = newPos;
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        //Randomize pitch for each coin
-        audioSource.pitch = 1 + (Random.value * 2 - 1) * 0.12f; 
-        audioSource.PlayOneShot(audioSource.clip);
+        AudioManager.Instance.PlayOneShot(coinsCollectSound, 0.88f, 1.12f, 0.2f);
         Player.Instance.AddCoin();
     }
 }
