@@ -17,16 +17,22 @@ public class Player : MonoBehaviour
 
     [Header("Stats")] 
     [SerializeField] private float initialFrequency = 1;
+
+    [SerializeField] private float initialProjectileDamage = 1;
+    [SerializeField] private float initialMultishot = 1;
     private void Awake()
     {
         Instance = this;
+        //Initialize stats
         playerStats.AddStat("frequency", new Stat(initialFrequency));
-        Debug.Log(playerStats.GetStatValue("frequency"));
+        playerStats.AddStat("projectile_damage", new Stat(initialProjectileDamage));
+        playerStats.AddStat("multishot", new Stat(initialMultishot));
+        
     }
 
     public void AddCoin()
     {
-        _coins++;
+        _coins += 1 * 100;
         coinsLabel.text = _coins.ToString();
     }
 

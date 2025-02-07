@@ -10,7 +10,7 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private StatsRef playerStats;
+    [SerializeField] private StatsRef statsRef;
 
     private StatModifier _currentModifier;
     private int _currentLevel;
@@ -39,7 +39,7 @@ public class Upgrade : MonoBehaviour
             //For the first level add it
             if (_currentLevel == 1)
             {
-                playerStats.GetStat(data.AffectedStat, out Stat stat);
+                statsRef.GetStat(data.AffectedStat, out Stat stat);
                 stat.AddModifier(_currentModifier);
             }
             else

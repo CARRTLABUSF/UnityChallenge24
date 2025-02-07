@@ -11,9 +11,8 @@ public class SphereController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpDisplay;
 
     private Animation _animation;
-    [SerializeField]
-    private ParticleSystem impactPS;
-
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private ParticleSystem impactPS;
     private void Awake()
     {
         _animation = gameObject.GetComponent<Animation>();
@@ -26,6 +25,8 @@ public class SphereController : MonoBehaviour
         _animation.Play();
         hpDisplay.text = lives.ToString("N");
         impactPS.Play();
+        AudioManager.Instance.PlayOneShot(hitSound, 0.89f, 1.11f, 0.36f);
+        
         if (lives <= 0)
         {
             gameObject.SetActive(false);
