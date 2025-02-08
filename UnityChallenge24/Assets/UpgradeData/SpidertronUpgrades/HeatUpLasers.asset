@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a3250e63173dc44e9ce393e078073ff, type: 3}
-  m_Name: MultiShotUpg
+  m_Name: HeatUpLasers
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Fire X more projectiles per shot
-  <MaxLevel>k__BackingField: 4
-  baseCost: 500
-  costGrowthPerLevel: 10
-  costGrowthFormula: 2
+  <Description>k__BackingField: Make lasers deal more damage based on time spent
+  <MaxLevel>k__BackingField: 1
+  baseCost: 4000000
+  costGrowthPerLevel: 1000000
+  costGrowthFormula: 0
   baseEffect: 0
   effectGrowthPerLevel: 1
   effectGrowthFormula: 0
-  <AffectsStats>k__BackingField: 1
+  <AffectsStats>k__BackingField: 0
   statType: 0
-  <AffectedStat>k__BackingField: multishot
+  <AffectedStat>k__BackingField: 

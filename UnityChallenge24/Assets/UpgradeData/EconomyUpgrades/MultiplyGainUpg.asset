@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a3250e63173dc44e9ce393e078073ff, type: 3}
-  m_Name: MultiShotUpg
+  m_Name: MultiplyGainUpg
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Fire X more projectiles per shot
-  <MaxLevel>k__BackingField: 4
-  baseCost: 500
-  costGrowthPerLevel: 10
+  <Description>k__BackingField: Multiply gain per particle by X
+  <MaxLevel>k__BackingField: 50
+  baseCost: 100
+  costGrowthPerLevel: 1.25
   costGrowthFormula: 2
-  baseEffect: 0
-  effectGrowthPerLevel: 1
+  baseEffect: 1
+  effectGrowthPerLevel: 0.8
   effectGrowthFormula: 0
   <AffectsStats>k__BackingField: 1
-  statType: 0
-  <AffectedStat>k__BackingField: multishot
+  statType: 2
+  <AffectedStat>k__BackingField: gainPerParticle

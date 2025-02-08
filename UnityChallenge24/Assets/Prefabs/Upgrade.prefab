@@ -98,6 +98,36 @@ MonoBehaviour:
   levelText: {fileID: 1494415824251130386}
   costText: {fileID: 1494415824796171861}
   statsRef: {fileID: 0}
+  bought:
+    m_PersistentCalls:
+      m_Calls: []
+  maxed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1494415823496923117}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1494415824872030315}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Max
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1494415823496923119
 GameObject:
   m_ObjectHideFlags: 0

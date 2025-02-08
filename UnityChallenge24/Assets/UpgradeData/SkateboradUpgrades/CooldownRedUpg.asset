@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a3250e63173dc44e9ce393e078073ff, type: 3}
-  m_Name: MultiShotUpg
+  m_Name: CooldownRedUpg
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Fire X more projectiles per shot
-  <MaxLevel>k__BackingField: 4
-  baseCost: 500
-  costGrowthPerLevel: 10
-  costGrowthFormula: 2
-  baseEffect: 0
-  effectGrowthPerLevel: 1
-  effectGrowthFormula: 0
+  <Description>k__BackingField: Multiply cooldown by X
+  <MaxLevel>k__BackingField: 15
+  baseCost: 50000
+  costGrowthPerLevel: 10000
+  costGrowthFormula: 0
+  baseEffect: 1
+  effectGrowthPerLevel: 0.9
+  effectGrowthFormula: 2
   <AffectsStats>k__BackingField: 1
-  statType: 0
-  <AffectedStat>k__BackingField: multishot
+  statType: 2
+  <AffectedStat>k__BackingField: cooldown
