@@ -1,15 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-public class SphereController : MonoBehaviour
+public class SphereController : MonoBehaviour, IDestroyable
 {
-    void Start()
+    private int _health = 5;
+    private bool _canTakeDamage = true;
+
+    public void TakeDamage()
     {
-        
+        if (_canTakeDamage)
+        {
+            _health -= 1;
+
+            if (_health <= 0)
+            {
+                GameManager.Instance.Restart();
+                Destroy(gameObject);
+            }
+            else
+            {
+                StartCoroutine(DamageCooldown()); 
+            }
+        }
     }
-    void Update()
+
+    private IEnumerator DamageCooldown()
     {
-        
+        _canTakeDamage = false;
+        yield return new WaitForSeconds(1f);
+        _canTakeDamage = true;
     }
+
+
 }

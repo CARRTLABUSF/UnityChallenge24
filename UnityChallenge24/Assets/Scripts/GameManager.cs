@@ -1,20 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    
     public GameObject skipperPosition;
     public GameObject skateboardPosition;
-    // Start is called before the first frame update
+
+    [SerializeField] private GameObject SkipperPrefab;
+    [SerializeField] private GameObject SkateboardPrefab;
+    
+    // Initializing Singleton 
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+    
     void Start()
     {
-
+        Instantiate(SkipperPrefab, skipperPosition.transform);
+        Instantiate(SkateboardPrefab, skateboardPosition.transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Restart()
     {
-        
+        StartCoroutine(RestartScene());
     }
+    
+    private IEnumerator RestartScene()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+    
 }
