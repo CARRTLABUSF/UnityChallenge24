@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Data Viewer</title>
-  <style>
-    /*Insert your CSS here*/
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Data Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Unity Data Viewer</h1>
+    <h1>Unity Data Viewer</h1>
 
+    <div class="container">
+        <div class="info">
+            <p><b>Position:</b> <span id="posX">0</span>, <span id="posY">0</span>, <span id="posZ">0</span></p>
+            <p><b>Velocity:</b> <span id="velX">0</span>, <span id="velY">0</span>, <span id="velZ">0</span></p>
+            <p><b>Rotation:</b> <span id="eulerX">0</span>, <span id="eulerY">0</span>, <span id="eulerZ">0</span></p>
+        </div>
 
-  <script src="main.js"></script>
+        <div class="charts">
+            <canvas id="positionChart"></canvas>
+            <canvas id="velocityChart"></canvas>
+            <canvas id="rotationChart"></canvas>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

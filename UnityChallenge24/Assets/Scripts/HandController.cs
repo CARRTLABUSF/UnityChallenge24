@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
+    void Start() { }
+    void Update() { }
 }
