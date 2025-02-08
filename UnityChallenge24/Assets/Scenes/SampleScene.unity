@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0011351202, g: 0.0031264166, b: 0.0022876433, a: 1}
+  m_IndirectSpecularColor: {r: 0.0011348639, g: 0.003134957, b: 0.0022696557, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff61ba93433e11488d1046a7b4ca78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +483,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1434669016}
-  - component: {fileID: 1434669015}
   - component: {fileID: 1434669014}
+  - component: {fileID: 1434669017}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -503,19 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa07367eabe1da541b9a89c9a4e9c0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1434669015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434669013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23475619053a0bf46a796c210b6cfc61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1434669016
 Transform:
   m_ObjectHideFlags: 0
@@ -532,6 +520,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434669017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434669013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23475619053a0bf46a796c210b6cfc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  leftLimitX: 0.1
+  rightLimitX: 2
+  forwardLimitZ: 2
+  backwardLimitZ: 0.1
+  sphereLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1635608562
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,8 +600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff53836748404840a9fd21c5a875b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipperPosition: {fileID: 1953827564}
-  skateboardPosition: {fileID: 1635608562}
+  prefab: {fileID: 1953827564}
+  sphere: {fileID: 592936988}
 --- !u!4 &1845018903
 Transform:
   m_ObjectHideFlags: 0
