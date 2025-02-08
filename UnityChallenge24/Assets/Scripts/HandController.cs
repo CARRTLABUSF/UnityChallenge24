@@ -39,7 +39,7 @@ public class HandController : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        AudioManager.Instance.PlayOneShot(coinsCollectSound, 0.88f, 1.12f, 0.2f);
+        AudioManager.Instance.PlayOneShot(coinsCollectSound, 0.88f, 1.12f, 0.1f);
         Player.Instance.AddCoin();
     }
 }

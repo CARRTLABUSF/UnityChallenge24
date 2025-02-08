@@ -22,7 +22,7 @@ public class Stat
     //Cached values, since these values will be accessed frequently. We don't want to reiterate all 3 lists every frame
     private float _flatModifiersValue;
     private float _additiveModifiersValue;
-    private float _multiplicativeModifiersValue;
+    private float _multiplicativeModifiersValue = 1f;
 
     public Stat(float baseValue)
     {
@@ -35,7 +35,7 @@ public class Stat
     /// (Base + Flat + Additive * Base) * Multiplicative
     /// </summary>
     public float Value => (_baseValue + _flatModifiersValue + _additiveModifiersValue * _baseValue) 
-                          * (1 + _multiplicativeModifiersValue);
+                          * (1 * _multiplicativeModifiersValue);
 
     //Adds a modifier reference
     public void AddModifier(in StatModifier modifier)
@@ -90,7 +90,6 @@ public class Stat
     private void UpdateFlat(float oldValue, float newValue)
     {
         _flatModifiersValue += newValue - oldValue;
-        Debug.Log("Flat update: " + _flatModifiersValue);
     }
     
     private void UpdateAdditive(float oldValue, float newValue)

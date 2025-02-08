@@ -2,34 +2,50 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private const float kRestartTime = 5f;
     public static GameManager Instance;
+    
+    [SerializeField] private UnityEvent paused;
+    [SerializeField] private UnityEvent unPaused;
 
+    private bool _isPaused;
+    
     private void Awake()
     {
         //There is no need to retain the GameManager for this game
         Instance = this;
     }
     
-    private void Start()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SwitchPause();
+        }
     }
 
-    public void RestartGame()
+    public void SwitchPause()
     {
-        StartCoroutine(RestartGameRoutine());
+        if (_isPaused)
+        {
+            Time.timeScale = 1;
+            unPaused?.Invoke();
+        }
+        else
+        {
+            Time.timeScale = 0;
+            paused?.Invoke();
+        }
+
+        _isPaused = !_isPaused;
     }
 
-    private static IEnumerator RestartGameRoutine()
+    public void ExitToMenu()
     {
-        Debug.LogWarning($"Restarting in {kRestartTime:####} seconds");
-        yield return new WaitForSeconds(kRestartTime);
-        Debug.LogWarning($"Restarting!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("MainMenu");
     }
 }

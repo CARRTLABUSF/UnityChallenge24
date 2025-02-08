@@ -6,10 +6,12 @@ public class LaserHand : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePref;
     [SerializeField] private StatsRef playerStats;
+    [SerializeField] private AudioClip shootSound;
     
     private bool _collidedLastFixedUpdate;
     private void FixedUpdate()
     {
+        //Raycast until find the sphere
         if (Physics.Raycast(transform.position, Vector3.left, out RaycastHit hit))
         {
             if (_collidedLastFixedUpdate) return;
@@ -19,7 +21,7 @@ public class LaserHand : MonoBehaviour
 
                 for (int i = 0; i < (int)playerStats.GetStatValue("multishot"); i++)
                 {
-                    Invoke(nameof(Shoot), i * 0.1f);
+                    Invoke(nameof(Shoot), i * 0.05f);
                 }
                 
             }
@@ -32,11 +34,9 @@ public class LaserHand : MonoBehaviour
 
     private void Shoot()
     {
-        var rb = Instantiate(projectilePref, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        AudioManager.Instance.PlayOneShot(shootSound, 0.87f,1.1f, 0.3f);
+        var projectile = Instantiate(projectilePref, transform.position, Quaternion.identity).GetComponent<Projectile>();
 
-        rb.AddForce(-transform.right * 4, ForceMode.Impulse);
-                
-        //Destroy the projectile in 4 second if we somehow miss
-        Destroy(rb.gameObject, 4f);
+        projectile.Launch(-transform.right * 4, playerStats.GetStatValue("projectile_damage"));
     }
 }
