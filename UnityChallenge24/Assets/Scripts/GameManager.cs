@@ -1,20 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject skipperPosition;
-    public GameObject skateboardPosition;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public static GameManager Instance;
+    
+    [SerializeField] private UnityEvent paused;
+    [SerializeField] private UnityEvent unPaused;
 
+    private bool _isPaused;
+    
+    private void Awake()
+    {
+        //There is no need to retain the GameManager for this game
+        Instance = this;
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SwitchPause();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SwitchPause()
     {
-        
+        if (_isPaused)
+        {
+            Time.timeScale = 1;
+            unPaused?.Invoke();
+        }
+        else
+        {
+            Time.timeScale = 0;
+            paused?.Invoke();
+        }
+
+        _isPaused = !_isPaused;
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
