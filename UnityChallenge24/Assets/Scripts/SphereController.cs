@@ -1,8 +1,8 @@
 using System.Collections;
+using Interfaces;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
 
-public class SphereController : MonoBehaviour
+public class SphereController : MonoBehaviour, IDestroyable
 {
     private int _health = 5;
     private bool _canTakeDamage = true;

@@ -1,3 +1,4 @@
+using Interfaces;
 using UnityEngine;
 
 public class LaserHand : MonoBehaviour
@@ -17,13 +18,16 @@ public class LaserHand : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Destroyable"))
             {
-                var sphereController = hit.collider.gameObject.GetComponent<SphereController>();
-                
-                if (sphereController)
-                {
-                    sphereController.TakeDamage();
-                }
+                MakeDamageTo(hit.collider.gameObject);
             }
+        }
+    }
+    
+    private void MakeDamageTo(GameObject obj)
+    {
+        if (obj.TryGetComponent(out IDestroyable destructible))
+        {
+            destructible.TakeDamage();
         }
     }
 }
