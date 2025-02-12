@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/http"
 	"sync"
+	"os"
 
 	"github.com/gorilla/websocket"
 )
@@ -52,7 +53,6 @@ func main() {
 
 	select {} // Keep the main goroutine alive
 }
-
 // UDP server in charge of parsing position data from the simulation
 func startPositionUDPServer(port string) {
 	udpAddr, err := net.ResolveUDPAddr("udp", port)
@@ -90,6 +90,9 @@ func startPositionUDPServer(port string) {
 		broadcastToWebClients(message)
 	}
 }
+
+
+
 
 // Function that handles setting up and maintaining the websocket
 func handleWebSocket(w http.ResponseWriter, r *http.Request) {
@@ -144,6 +147,64 @@ func broadcastToWebClients(message string) { // <=== FUNCTION TO SEND WEBSOCKET 
 
 // ---------------------- MODIFY CODE BELOW -----------------------------------
 
+// SAVE IMAGE UDP SERVER
+
 func startImageUDPServer(port string) {
-	//LEVEL 3: COMPLETE ...
+	udpAddr, err := net.ResolveUDPAddr("udp", port)
+	if err != nil {
+		log.Fatalf("Failed to resolve image UDP address: %v", err)
+	}
+
+	conn, err := net.ListenUDP("udp", udpAddr)
+	if err != nil {
+		log.Fatalf("Failed to listen on image UDP: %v", err)
+	}
+	defer conn.Close()
+
+	fmt.Printf("Image UDP server running on port %s\n", port)
+
+	buffer := make([]byte, 65507) // Max UDP packet size for image data
+	for {
+		n, _, err := conn.ReadFromUDP(buffer)
+		if err != nil {
+			log.Printf("Error reading from image UDP: %v", err)
+			continue
+		}
+
+		// Save the received image as "cringe.png"
+		err = saveImage(buffer[:n])
+		if err != nil {
+			log.Printf("Error saving image: %v", err)
+			continue
+		}
+
+		// Broadcast image to WebSocket clients
+		broadcastImageToWebClients(buffer[:n])
+	}
+}
+
+// Function to save the received image as "cringe.png"
+func saveImage(imgData []byte) error {
+	filePath := "./static/cringe.png"
+	err := os.WriteFile(filePath, imgData, 0644)
+	if err != nil {
+		return err
+	}
+	fmt.Println("Image saved as cringe.png")
+	return nil
+}
+
+// Function to broadcast the received image to WebSocket clients
+func broadcastImageToWebClients(imgData []byte) {
+	clientsMutex.Lock()
+	defer clientsMutex.Unlock()
+
+	for client := range clients {
+		err := client.WriteMessage(websocket.BinaryMessage, imgData)
+		if err != nil {
+			log.Printf("Error sending image to WebSocket client: %v", err)
+			client.Close()
+			delete(clients, client)
+		}
+	}
 }

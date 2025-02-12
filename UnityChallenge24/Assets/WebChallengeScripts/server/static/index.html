@@ -4,12 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unity Data Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /*Insert your CSS here*/
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+} 
+
+.graph-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* margin-top: 10px; */
+}
+
+canvas {
+    width: 300px !important;
+    height: 300px !important;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 2px;
+}
+
+.rotation-box {
+    text-align: center;
+}
+.graph-label-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* Space out labels */
+}
+
+.graph-label {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+    
   </style>
 </head>
 <body>
-  <h1>Unity Data Viewer</h1>
+    <h1> Unity Data Viewer _ HEMANTH KUMAR </h1>
+
+    <div class="graph-label-container" style="justify-content: center; gap:200px">
+        <p class="graph-label">Path (X-Z)</p>
+        <p class="graph-label">Path (X-Y)</p>
+    </div>
+
+    <div class="graph-container">
+        <canvas id="pathXZ"></canvas>
+        <canvas id="pathXY"></canvas>
+    </div>
+    <br/>
+
+    <div class="graph-label-container" style="justify-content: center; gap:200px">
+        <p class="graph-label">Velocity X</p>
+        <p class="graph-label">Velocity Y</p>
+        <p class="graph-label">Velocity Z</p>
+        <p class="graph-label">Absolute Velocity</p>
+    </div>
+
+    <div class="graph-container">
+        <canvas id="velocityX"></canvas>
+        <canvas id="velocityY"></canvas>
+        <canvas id="velocityZ"></canvas>
+        <canvas id="velocityAbs"></canvas>
+    </div>
+    <br/>
+
+    <div class="graph-container">
+        <div class="rotation-box">
+            <p>Rotation X: <span id="rotationXLabel"></span></p>
+            <canvas id="rotationX"></canvas> 
+        </div>
+        <div class="rotation-box">
+            <p>Rotation Y: <span id="rotationYLabel"></span></p>
+            <canvas id="rotationY"></canvas>
+        </div>
+        <div class="rotation-box">
+            <p>Rotation Z: <span id="rotationZLabel"></span></p>
+            <canvas id="rotationZ"></canvas>
+        </div>
+    </div>
+
+    <h1>Live Video Stream</h1>
+    <img id="videoFeed" width="400" height="300" alt="Waiting for video feed..." />
+
 
 
   <script src="main.js"></script>

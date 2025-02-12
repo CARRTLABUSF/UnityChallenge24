@@ -27,6 +27,18 @@ public class NetworkManager : MonoBehaviour
                         float velX, float velY, float velZ, float velAbs, float time)
         {
             // <==== LEVEL 1: COMPLETE CONSTRUCTOR
+            this.posX = posX;
+            this.posY = posY;
+            this.posZ = posZ;
+            this.eulerX = eulerX;
+            this.eulerY = eulerY;
+            this.eulerZ = eulerZ;
+            this.velX = velX;
+            this.velY = velY;
+            this.velZ = velZ;
+            this.velAbs = velAbs;
+            this.time = time;
+
         }
     }
 
@@ -41,19 +53,25 @@ public class NetworkManager : MonoBehaviour
     public int ImagePort = 9091; // <==== Hint for LEVEL 3
 
     public float positionPeriod = 0.5f; // seconds between sending position data to server
+    public float imagePeriod = 0.1f;
     private UdpClient positionClient; // <==== USE TO COMMUNICATE WITH SERVER
+
+    private UdpClient imageClient;
 
 
 
     void Start()
     {
         positionClient = new UdpClient();
+        imageClient = new UdpClient(); 
         StartCoroutine(SendPositionCoroutine());
+        StartCoroutine(SendImageCoroutine());
     }
 
     void OnApplicationQuit()
     {
         positionClient.Close(); //ALL UDP Connections should close here
+        imageClient.Close();
     }
 
 
@@ -70,13 +88,48 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    void SendPosition()
+    private IEnumerator SendImageCoroutine()
     {
-        //<==== LEVEL 1: COMPLETE ...
+        while (true)
+        {
+            if (targetCamera != null)
+            {
+                SendImage();
+            }
+            yield return new WaitForSeconds(imagePeriod);
+        }
     }
 
 
-#region HELPER_FUNCTIONS
+    void SendPosition()
+    {
+        //<==== LEVEL 1: COMPLETE ...
+
+        float posX = 0, posY = 0, posZ = 0, velX = 0, velY = 0, velZ = 0, velAbs = 0;
+        float eulerX = 0, eulerY = 0, eulerZ = 0;
+        GetObjectPosition(targetObject, ref posX, ref posY, ref posZ);
+        GetObjectVelocity(targetObject, ref velX, ref velY, ref velZ, ref velAbs);
+        GetObjectRotation(targetObject, ref eulerX, ref eulerY, ref eulerZ);
+        UDP_Data obj = new UDP_Data(posX, posY, posZ, eulerX, eulerY, eulerZ, velX, velY, velZ, velAbs, Time.time);
+        string jsonData = JsonUtility.ToJson(obj);
+        // Console.WriteLine(jsonData);
+        Encoding enc = Encoding.UTF8;
+        byte[] bytes = enc.GetBytes(jsonData);
+        // Console.WriteLine(bytes);
+        positionClient.Send(bytes, bytes.Length, serverIP, positionPort);
+
+    }
+    void SendImage()
+    {
+        byte[] imageBytes = GetImageBytes(699, 422, 50); 
+        if (imageBytes != null)
+        {
+            imageClient.Send(imageBytes, imageBytes.Length, serverIP, ImagePort);
+        }
+    }
+
+
+    #region HELPER_FUNCTIONS
 
     //Function to get position of the target object and returned as flaots to avoid having to deal with Vector3 objects
 
@@ -139,6 +192,7 @@ public class NetworkManager : MonoBehaviour
     
         return imageBytes;
     }
+    
 
 
     #endregion
