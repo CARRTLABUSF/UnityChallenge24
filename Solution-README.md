@@ -8,7 +8,7 @@
  
 - The HandController script makes an object smoothly follow the mouse cursor in 3D space, keeping it positioned at a set depth in front of the camera.
 
-[Download and Watch Unity Coding Challenge Part 1](https://we.tl/t-6mHczWMVMH)
+[Download and Watch Unity Coding Challenge Part 1](https://drive.google.com/file/d/1hUDPAu39Exe8brEfWvpU9oZZ1WIjetnQ/view?usp=sharing)
 
 
 ### Part 2: Instantiating Prefabs
@@ -20,7 +20,7 @@
 - This ensures objects don’t overlap and are evenly spread out. Once an object is spawned, it’s added to a list to track active objects, and after some time, it gets removed to keep the scene balanced. 
 - This way, the game continuously spawns and manages objects smoothly as it progresses.
 
-[Download and Watch Unity Coding Challenge Part 3](https://we.tl/t-e5LinW3OOK)
+[Download and Watch Unity Coding Challenge Part 2](https://drive.google.com/file/d/1cYDaOkXrFxe4A9dW5Tiub1RbeXS9S9jP/view?usp=sharing)
 
 
 ### Part 3: Game Object Lives
@@ -32,7 +32,7 @@
 
 - This setup ensures that all hit tracking happens in LaserHand, while life management and destruction are handled within SphereController, keeping the logic clean and organized. 
 
-[Download and Watch Unity Coding Challenge Part 3](https://we.tl/t-ta63JSkOfg)
+[Download and Watch Unity Coding Challenge Part 3](https://drive.google.com/file/d/1ywpdhFTIMc0Gq_Mgz_ATLTpbZ3gU5vsc/view?usp=sharing)
 
 ### Bonus : Take it beyond
 - Added a new skybox for enhanced visual effects.
@@ -49,7 +49,7 @@
 
 - Created UDP_Data object to store these values and converted them into JSON format using  JsonUtility.ToJson(obj) and converted the JSON object into bytes to transmit over the UDP network. To verify the functionality, run server.exe to check whether the messages are coming through or not.
 
-[Download and Watch Web technology Challenge Part 1](https://we.tl/t-45EOT4MOIv)
+[Download and Watch Web technology Challenge Part 1](https://drive.google.com/file/d/1vXwrxTU_i-3vpYN-ZOmlPNe3-ugiifCH/view?usp=sharing)
 
 ### Part 2: Make it pretty
 - To present the received object movement data on UI, used Chart.js library to provide simple graph representation of real-time data. Firstly, recevied data in JSON format, parsed it and store the values in respective arrays say Velocity={x:[], y:[], z:[], abs=[]}. 
@@ -72,7 +72,7 @@
 
 - CSS style tag is used for getting structured layout for the graphs. 
 
-[Download and Watch Web technology Challenge Part 2](https://we.tl/t-Vk4Bono4Or)
+[Download and Watch Web technology Challenge Part 2](https://drive.google.com/file/d/1Gmz9-YD0bXGf18QvymhbULjt25404Z6r/view?usp=sharing)
 
 
 ### Bonus: Modify backend to handle video feed
@@ -95,5 +95,5 @@
 
 - Modified index.html to include the image tag for displaying real-time streaming image data.
 
-[Download and Watch Web technology Challenge Part 1](https://we.tl/t-m6sMRRogXJ)
+[Download and Watch Web technology Challenge Part 3](https://drive.google.com/file/d/1PlBp4nGj1owWbAuVb7n4FwbYM_HYB-Mr/view?usp=sharing)
 
